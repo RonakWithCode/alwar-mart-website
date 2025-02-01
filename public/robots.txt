@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://alwarmart.com/sitemap.xml 
+Sitemap: https://alwarmart.in/sitemap.xml 

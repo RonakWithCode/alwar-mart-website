@@ -15,7 +15,7 @@ export async function generateMetadata({ params }) {
   }
 
   const productImage = product.ProductImage?.[0] || '/default-product-image.jpg';
-  const productUrl = `https://alwarmart.com/product/${product.slug}`;
+  const productUrl = `https://alwarmart.in/product/${product.slug}`;
 
   return {
     title: `${product.productName} | Buy Online at Alwar Mart`,

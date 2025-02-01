@@ -4,7 +4,7 @@ const nextConfig = {
     domains: [
       'firebasestorage.googleapis.com', // Allow Firebase Storage images
       'lh3.googleusercontent.com',      // Allow Google user profile images
-      'alwarmart.com'                   // Allow your domain images
+      'alwarmart.in'                   // Allow your domain images
     ],
     // Optional: Configure image sizes
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],

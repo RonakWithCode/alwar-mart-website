@@ -13,13 +13,13 @@ export default function Home() {
         <meta property="og:title" content="Alwar Mart: #1 Grocery Delivery App in Alwar | 30 Min Delivery" />
         <meta property="og:description" content="Order groceries, fruits, vegetables & daily essentials from Alwar Mart. ✓30-minute delivery ✓Best prices ✓3000+ products. Serving all areas in Alwar, Rajasthan." />
         <meta property="og:image" content="/alwar-mart-banner.jpg" />
-        <meta property="og:url" content="https://alwarmart.com" />
+        <meta property="og:url" content="https://alwarmart.in" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Alwar Mart: #1 Grocery Delivery App in Alwar" />
         <meta name="twitter:description" content="Order groceries, fruits, vegetables & daily essentials with 30-minute delivery in Alwar." />
         
-        <link rel="canonical" href="https://alwarmart.com" />
+        <link rel="canonical" href="https://alwarmart.in" />
         
         {/* Local SEO */}
         <script type="application/ld+json">
@@ -42,7 +42,7 @@ export default function Home() {
               "latitude": "[Your Latitude]",
               "longitude": "[Your Longitude]"
             },
-            "url": "https://alwarmart.com",
+            "url": "https://alwarmart.in",
             "telephone": "[Your Phone Number]",
             "priceRange": "₹₹",
             "openingHoursSpecification": {
