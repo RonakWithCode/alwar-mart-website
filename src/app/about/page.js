@@ -22,8 +22,8 @@ export default function About() {
               <span className="block mt-3 text-yellow-300">in Alwar</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto animate-fadeIn delay-200">
-              From a simple idea to Alwar's leading grocery delivery platform, 
-              we're making daily essentials accessible to everyone.
+              From a simple idea to Alwar&apos;s leading grocery delivery platform, 
+              we&apos;re making daily essentials accessible to everyone.
             </p>
           </div>
         </div>

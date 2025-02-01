@@ -11,8 +11,8 @@ export const metadata = {
   title: "Alwar Mart - Fastest Grocery Delivery in Alwar | 30 Min Delivery",
   description: "Order groceries, fruits & vegetables online in Alwar with 30-minute delivery. Fresh products, best prices, and widest selection. Download app now!",
   metadataBase: new URL('https://alwarmart.in'),
+  keywords: 'grocery delivery Alwar, online grocery, Alwar Mart, quick delivery, vegetables, fruits, grocery store near me',
   verification: {
-    
     google: 'T-O-FaNv6bqnYxMcJZiapacJ1P54QeAlkBr1M26P_W0',
   },
   alternates: {
@@ -26,6 +26,12 @@ export const metadata = {
     locale: 'en_IN',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Alwar Mart - Fastest Grocery Delivery in Alwar',
+    description: 'Order groceries online in Alwar with 30-minute delivery. Fresh products, best prices, and widest selection.',
+    images: ['/alwar-mart-banner.jpg'],
+  },
   robots: {
     index: true,
     follow: true,
@@ -37,6 +43,9 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+  themeColor: '#4CAF50',
+  manifest: '/manifest.json'
 };
 
 export default function RootLayout({ children }) {
@@ -45,6 +54,27 @@ export default function RootLayout({ children }) {
       <body className={`${geist.className} antialiased`}>
         <Navbar />
         {children}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Alwar Mart",
+            "url": "https://alwarmart.in",
+            "logo": "https://alwarmart.in/alwar-mart-logo.png",
+            "sameAs": [
+              "https://facebook.com/alwarmart",
+              "https://twitter.com/alwarmart",
+              "https://instagram.com/alwarmart"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "[Your Phone]",
+              "contactType": "customer service",
+              "areaServed": "Alwar",
+              "availableLanguage": ["English", "Hindi"]
+            }
+          })}
+        </script>
       </body>
     </html>
   );

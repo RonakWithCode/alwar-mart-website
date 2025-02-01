@@ -84,7 +84,7 @@ export default function Home() {
                     <span className="block mt-2 text-yellow-300">Delivered in 30 Min</span>
                   </h1>
                   <p className="text-lg sm:text-xl text-white/90 mb-8 leading-relaxed">
-                    Experience the convenience of doorstep delivery with Alwar's most trusted grocery app. Fresh vegetables, fruits, and daily essentials at your fingertips.
+                    Experience the convenience of doorstep delivery with Alwar&apos;s most trusted grocery app. Fresh vegetables, fruits, and daily essentials at your fingertips.
                   </p>
                   
                   {/* CTA Buttons */}
@@ -265,7 +265,7 @@ export default function Home() {
                   <span className="block text-[#4CAF50]">Start Saving Today!</span>
                 </h2>
                 <p className="text-lg text-gray-600 mb-8">
-                  Join over 30,000 happy customers who are already enjoying:
+                  Join over 30,000 happy customers who&apos;re already enjoying:
                 </p>
                 <ul className="space-y-4 mb-8">
                   {[
