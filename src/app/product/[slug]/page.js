@@ -16,14 +16,18 @@ export async function generateMetadata({ params }) {
 
   const productImage = product.ProductImage?.[0] || '/default-product-image.jpg';
   const productUrl = `https://alwarmart.in/product/${product.slug}`;
+  const productDescription = `Buy ${product.productName} ${product.weight ? `(${product.weight} ${product.weightSIUnit})` : ''} online at best price from Alwar Mart. Free delivery available. ${product.productDescription?.substring(0, 150)}...`;
 
   return {
-    title: `${product.productName} | Buy Online at Alwar Mart`,
-    description: `Buy ${product.productName} ${product.weight ? `(${product.weight} ${product.weightSIUnit})` : ''} at best price from Alwar Mart. ${product.productDescription?.substring(0, 150)}...`,
+    title: `${product.productName} - Buy Online at Best Price in Alwar | Alwar Mart`,
+    description: productDescription,
     keywords: [
       product.productName,
       product.Brand,
       product.category,
+      'buy online',
+      'best price',
+      'Alwar',
       'online grocery',
       'Alwar Mart',
       ...(product.keywords || [])

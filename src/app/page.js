@@ -31,19 +31,19 @@ export default function Home() {
             "description": "Fastest grocery delivery service in Alwar with 30-minute delivery guarantee",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "[Your Street Address]",
+              "streetAddress": "Malviya Nagar, Alwar, Rajasthan 301001",
               "addressLocality": "Alwar",
               "addressRegion": "Rajasthan",
-              "postalCode": "[Your Postal Code]",
+              "postalCode": "301001",
               "addressCountry": "IN"
             },
             "geo": {
               "@type": "GeoCoordinates",
-              "latitude": "[Your Latitude]",
-              "longitude": "[Your Longitude]"
+              "latitude": "27.534189",
+              "longitude": "76.607516"
             },
             "url": "https://alwarmart.in",
-            "telephone": "[Your Phone Number]",
+            "telephone": "7023941072",
             "priceRange": "₹₹",
             "openingHoursSpecification": {
               "@type": "OpeningHoursSpecification",
