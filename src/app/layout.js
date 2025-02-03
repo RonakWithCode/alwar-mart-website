@@ -8,12 +8,15 @@ const geist = Geist({
 });
 
 export const metadata = {
-  title: "Alwar Mart - Fastest Grocery Delivery in Alwar | 30 Min Delivery",
-  description: "Order groceries, fruits & vegetables online in Alwar with 30-minute delivery. Fresh products, best prices, and widest selection. Download app now!",
   metadataBase: new URL('https://alwarmart.in'),
+  title: {
+    default: 'Alwar Mart - Fastest Grocery Delivery in Alwar',
+    template: '%s | Alwar Mart'
+  },
+  description: 'Order groceries online in Alwar with 30-minute delivery. Fresh products, best prices, and widest selection.',
   keywords: 'grocery delivery Alwar, online grocery, Alwar Mart, quick delivery, vegetables, fruits, grocery store near me , fresh vegetables, fresh fruits, fresh vegetables online, fresh fruits online, online grocery store, online grocery shopping, online grocery delivery, online grocery app, online grocery, online grocery app in near me , online grocery app in Ashok general store, online grocery app in Malviya Nagar, Alwar, online grocery app in kati ghati, grocery app in Alwar, online grocery app in Rajasthan, online grocery app in India, online grocery app in alwar',
   verification: {
-    google: 'T-O-FaNv6bqnYxMcJZiapacJ1P54QeAlkBr1M26P_W0',
+    google: 'T-O-FaNv6bqnYxMcJZiapacJ1P54QeAlkBr1M26P_W0'
   },
   alternates: {
     canonical: '/',
@@ -49,7 +52,8 @@ export const metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon.png', type: 'image/png', sizes: '32x32' }
+      { url: '/logo-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/logo-512.png', sizes: '512x512', type: 'image/png' }
     ],
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180' }
@@ -57,7 +61,7 @@ export const metadata = {
     other: [
       {
         rel: 'mask-icon',
-        url: '/safari-pinned-tab.svg',
+        url: '/maskable-icon.png',
         color: '#4CAF50'
       }
     ]
