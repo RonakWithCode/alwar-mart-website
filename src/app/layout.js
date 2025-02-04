@@ -21,7 +21,7 @@ export const metadata = {
     template: '%s | Alwar Mart'
   },
   description: 'Order groceries online in Alwar with 30-minute delivery. Fresh products, best prices, and widest selection.',
-  keywords: 'grocery delivery Alwar, online grocery, Alwar Mart, quick delivery, vegetables, fruits, grocery store near me , fresh vegetables, fresh fruits, fresh vegetables online, fresh fruits online, online grocery store, online grocery shopping, online grocery delivery, online grocery app, online grocery, online grocery app in near me , online grocery app in Ashok general store, online grocery app in Malviya Nagar, Alwar, online grocery app in kati ghati, grocery app in Alwar, online grocery app in Rajasthan, online grocery app in India, online grocery app in alwar',
+  keywords: ['grocery delivery Alwar', 'online grocery', 'Alwar Mart', 'quick delivery', 'vegetables', 'fruits'],
   verification: {
     google: 'T-O-FaNv6bqnYxMcJZiapacJ1P54QeAlkBr1M26P_W0'
   },

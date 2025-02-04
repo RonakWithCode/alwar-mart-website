@@ -4,12 +4,12 @@ import { db } from '@/service/firebase';
 export default async function sitemap() {
   try {
     // Fetch all products from Firestore
-    const products = await getDocs(collection(db, "Product"));
+    const productsSnapshot = await getDocs(collection(db, "Product"));
+    const products = productsSnapshot.docs.map(doc => doc.data());
     
-    // Get current date for lastModified
     const currentDate = new Date().toISOString();
 
-    // Base URLs with comprehensive structure
+    // Base URLs
     const baseUrls = [
       {
         url: 'https://alwarmart.in',
@@ -20,48 +20,45 @@ export default async function sitemap() {
       {
         url: 'https://alwarmart.in/about',
         lastModified: currentDate,
-        changeFrequency: 'monthly',
+        changeFrequency: 'weekly',
         priority: 0.8,
       },
       {
         url: 'https://alwarmart.in/contact',
         lastModified: currentDate,
-        changeFrequency: 'monthly',
+        changeFrequency: 'weekly',
         priority: 0.8,
       },
       {
         url: 'https://alwarmart.in/return-policy',
         lastModified: currentDate,
-        changeFrequency: 'monthly',
+        changeFrequency: 'weekly',
         priority: 0.7,
       },
       {
         url: 'https://alwarmart.in/privacy-policy',
         lastModified: currentDate,
-        changeFrequency: 'monthly',
+        changeFrequency: 'weekly',
         priority: 0.7,
       },
       {
         url: 'https://alwarmart.in/terms',
         lastModified: currentDate,
-        changeFrequency: 'monthly',
+        changeFrequency: 'weekly',
         priority: 0.7,
       },
     ];
 
-    // Generate product URLs with better prioritization
-    const productUrls = products.docs.map((doc) => {
-      const product = doc.data();
-      return {
-        url: `https://alwarmart.in/product/${product.slug}`,
-        lastModified: product.updatedAt || currentDate,
-        changeFrequency: product.isAvailable ? 'daily' : 'weekly',
-        priority: product.isAvailable ? 0.9 : 0.5,
-      };
-    });
+    // Product URLs
+    const productUrls = products.map((product) => ({
+      url: `https://alwarmart.in/product/${product.slug}`,
+      lastModified: product.updatedAt || currentDate,
+      changeFrequency: 'daily',
+      priority: 0.9,
+    }));
 
-    // Generate category URLs
-    const categories = [...new Set(products.docs.map(doc => doc.data().category))];
+    // Category URLs
+    const categories = [...new Set(products.map(product => product.category))];
     const categoryUrls = categories.map((category) => ({
       url: `https://alwarmart.in/category/${encodeURIComponent(category.toLowerCase())}`,
       lastModified: currentDate,
@@ -69,10 +66,10 @@ export default async function sitemap() {
       priority: 0.8,
     }));
 
-    // Combine all URLs
     return [...baseUrls, ...categoryUrls, ...productUrls];
   } catch (error) {
     console.error('Error generating sitemap:', error);
+    // Return at least the homepage if there's an error
     return [
       {
         url: 'https://alwarmart.in',
