@@ -3,15 +3,11 @@ export default function robots() {
       rules: [
         {
           userAgent: '*',
-          allow: ['/'],
-          disallow: [
-            '/admin/',
-            '/api/',
-            '/private/',
-            '/*?*', // Prevent crawling of search results and filtered pages
-          ],
+          allow: '/',
+          disallow: ['/api/', '/admin/'],
         },
       ],
       sitemap: 'https://alwarmart.in/sitemap.xml',
+      host: 'https://alwarmart.in',
     }
   }

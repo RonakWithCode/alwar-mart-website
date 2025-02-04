@@ -9,7 +9,7 @@ export default async function sitemap() {
     // Get current date for lastModified
     const currentDate = new Date().toISOString();
 
-    // Base URLs with more comprehensive structure
+    // Base URLs with comprehensive structure
     const baseUrls = [
       {
         url: 'https://alwarmart.in',
@@ -21,10 +21,28 @@ export default async function sitemap() {
         url: 'https://alwarmart.in/about',
         lastModified: currentDate,
         changeFrequency: 'monthly',
-        priority: 0.7,
+        priority: 0.8,
       },
       {
         url: 'https://alwarmart.in/contact',
+        lastModified: currentDate,
+        changeFrequency: 'monthly',
+        priority: 0.8,
+      },
+      {
+        url: 'https://alwarmart.in/return-policy',
+        lastModified: currentDate,
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      },
+      {
+        url: 'https://alwarmart.in/privacy-policy',
+        lastModified: currentDate,
+        changeFrequency: 'monthly',
+        priority: 0.7,
+      },
+      {
+        url: 'https://alwarmart.in/terms',
         lastModified: currentDate,
         changeFrequency: 'monthly',
         priority: 0.7,
@@ -37,8 +55,8 @@ export default async function sitemap() {
       return {
         url: `https://alwarmart.in/product/${product.slug}`,
         lastModified: product.updatedAt || currentDate,
-        changeFrequency: product.isAvailable ? 'daily' : 'weekly', // More frequent updates for available products
-        priority: product.isAvailable ? 0.9 : 0.5, // Higher priority for available products
+        changeFrequency: product.isAvailable ? 'daily' : 'weekly',
+        priority: product.isAvailable ? 0.9 : 0.5,
       };
     });
 
@@ -55,7 +73,6 @@ export default async function sitemap() {
     return [...baseUrls, ...categoryUrls, ...productUrls];
   } catch (error) {
     console.error('Error generating sitemap:', error);
-    // Return basic sitemap in case of error
     return [
       {
         url: 'https://alwarmart.in',
