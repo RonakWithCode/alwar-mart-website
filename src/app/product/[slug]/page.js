@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }) {
-  const product = await getProductBySlug(params);
+  const product = await getProductBySlug(params.slug);
   
   if (!product) {
     return {
@@ -14,9 +14,19 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const productImage = product.ProductImage?.[0] || '/default-product-image.jpg';
+  const productImage = product?.productImage?.[0] || '/default-product-image.jpg';
   const productUrl = `https://alwarmart.in/product/${product.slug}`;
-  const productDescription = `Buy ${product.productName} ${product.weight ? `(${product.weight} ${product.weightSIUnit})` : ''} online at best price from Alwar Mart. Free delivery available. ${product.productDescription?.substring(0, 150)}...`;
+  const productDescription = `Buy ${product.productName} ${
+    product.weight ? `(${product.weight} ${product.weightSIUnit})` : ''
+  } online at best price from Alwar Mart. Free delivery available. ${
+    product.productDescription?.substring(0, 150) || ''
+  }...`;
+
+  console.log('Generating metadata for product:', {
+    slug: params.slug,
+    productName: product.productName,
+    productImage
+  });
 
   return {
     title: `${product.productName} - Buy Online at Best Price in Alwar | Alwar Mart`,
@@ -37,26 +47,30 @@ export async function generateMetadata({ params }) {
     },
     openGraph: {
       title: product.productName,
-      description: product.productDescription,
+      description: product.productDescription || productDescription,
       url: productUrl,
       images: [{ url: productImage }],
-      type: 'product',
-      availability: product.isAvailable ? 'in stock' : 'out of stock',
-      price: {
-        amount: product.price,
-        currency: 'INR',
-      },
+      type: 'website',
+      siteName: 'Alwar Mart',
+      locale: 'en_IN',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: product.productName,
+      description: product.productDescription || productDescription,
+      images: [{ url: productImage }],
+      site: '@alwarmart_store',
     },
     other: {
       'application/ld+json': JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Product',
         name: product.productName,
-        description: product.productDescription,
-        image: product.ProductImage,
+        description: product.productDescription || productDescription,
+        image: productImage,
         brand: {
           '@type': 'Brand',
-          name: product.Brand
+          name: product.Brand || 'Alwar Mart'
         },
         offers: {
           '@type': 'Offer',
@@ -67,30 +81,19 @@ export async function generateMetadata({ params }) {
             '@type': 'Organization',
             name: 'Alwar Mart'
           },
-          priceValidUntil: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(), // 7 days from now
-        },
-        aggregateRating: product.rating ? {
-          '@type': 'AggregateRating',
-          ratingValue: product.rating,
-          reviewCount: product.reviewCount || 0
-        } : undefined,
-        category: product.category,
-        weight: product.weight ? {
-          '@type': 'QuantitativeValue',
-          value: product.weight,
-          unitText: product.weightSIUnit
-        } : undefined
+          priceValidUntil: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        }
       })
     }
   };
 }
 
 // Generate static paths for all products
-export async function generateStaticParams() {
-  // Implement this based on your needs
-  // This helps with static site generation
-  return [];
-}
+// export async function generateStaticParams() {
+//   // Implement this based on your needs
+//   // This helps with static site generation
+//   return [];
+// }
 
 export default async function ProductPage({ params }) {
   const product = await getProductBySlug(params.slug);
@@ -114,7 +117,6 @@ export default async function ProductPage({ params }) {
     );
   }
 
-  // Calculate savings
   const savings = product.mrp - product.price;
   const savingsPercentage = ((savings / product.mrp) * 100).toFixed(0);
 
@@ -164,7 +166,7 @@ export default async function ProductPage({ params }) {
                 <div key={index} className="aspect-square relative rounded-lg overflow-hidden bg-white shadow cursor-pointer">
                   <Image
                     src={image}
-                    alt={`${product.productImage} - Image ${index + 1}`}
+                    alt={`${product.productName} - Image ${index + 1}`}
                     fill
                     className="object-contain p-2"
                   />

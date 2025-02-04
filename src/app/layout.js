@@ -7,6 +7,13 @@ const geist = Geist({
   weight: ['400', '500', '600', '700'],
 });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: '#4CAF50'
+};
+
 export const metadata = {
   metadataBase: new URL('https://alwarmart.in'),
   title: {
@@ -46,23 +53,20 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
-  themeColor: '#4CAF50',
   manifest: '/manifest.json',
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/logo-192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/logo-512.png', sizes: '512x512', type: 'image/png' }
+      { url: '/favicon.ico' },
+      { url: '/logo-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/logo-512.png', type: 'image/png', sizes: '512x512' }
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180' }
+      { url: '/apple-touch-icon.png' }
     ],
     other: [
       {
         rel: 'mask-icon',
-        url: '/maskable-icon.png',
-        color: '#4CAF50'
+        url: '/maskable-icon.png'
       }
     ]
   },
