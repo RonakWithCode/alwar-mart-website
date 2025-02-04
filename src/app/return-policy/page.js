@@ -44,7 +44,7 @@ export default function ReturnPolicy() {
               <ul className="list-disc pl-6 space-y-2">
                 <li>Products damaged during delivery</li>
                 <li>Items received in compromised condition from our warehouse</li>
-                <li>Products that don't match the description on our platform</li>
+                <li>Products that don&apos;t match the description on our platform</li>
               </ul>
             </div>
           </section>
