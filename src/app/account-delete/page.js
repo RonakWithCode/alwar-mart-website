@@ -2,8 +2,7 @@
 "use client";
 import { addDeletionRequest } from '@/service/firebase';
 import React, { useState } from 'react';
-// import { addDeletionRequest } from '@setv'; // adjust path as needed
-// addDeletionRequest
+
 export default function AccountDelete() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -52,74 +51,74 @@ export default function AccountDelete() {
   };
 
   return (
-    <div className="account-delete-container" style={{ maxWidth: "500px", margin: "0 auto", padding: "20px" }}>
-      <h1>Account Deletion Request</h1>
+    <div className="max-w-lg mx-auto p-5">
+      <h1 className="text-2xl font-bold mb-6">Account Deletion Request</h1>
       <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: "15px" }}>
-          <label htmlFor="firstName">First Name:</label><br />
+        <div className="mb-4">
+          <label htmlFor="firstName" className="block mb-1">First Name:</label>
           <input 
             type="text" 
             id="firstName" 
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             required 
-            style={{ width: "100%", padding: "8px" }}
+            className="w-full p-2 border rounded"
           />
         </div>
-        <div style={{ marginBottom: "15px" }}>
-          <label htmlFor="lastName">Last Name:</label><br />
+        <div className="mb-4">
+          <label htmlFor="lastName" className="block mb-1">Last Name:</label>
           <input 
             type="text" 
             id="lastName" 
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             required 
-            style={{ width: "100%", padding: "8px" }}
+            className="w-full p-2 border rounded"
           />
         </div>
-        <div style={{ marginBottom: "15px" }}>
-          <label htmlFor="phone">Phone Number:</label><br />
+        <div className="mb-4">
+          <label htmlFor="phone" className="block mb-1">Phone Number:</label>
           <input 
             type="tel" 
             id="phone" 
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             required 
-            style={{ width: "100%", padding: "8px" }}
+            className="w-full p-2 border rounded"
           />
         </div>
-        <div style={{ marginBottom: "15px" }}>
-          <label htmlFor="email">Email:</label><br />
+        <div className="mb-4">
+          <label htmlFor="email" className="block mb-1">Email:</label>
           <input 
             type="email" 
             id="email" 
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required 
-            style={{ width: "100%", padding: "8px" }}
+            className="w-full p-2 border rounded"
           />
         </div>
-        <div className="terms" style={{ marginBottom: "15px" }}>
-          <p style={{ fontSize: "14px" }}>
+        <div className="mb-4">
+          <p className="text-sm mb-2">
             By deleting your account, you acknowledge that all your data will be permanently removed within <strong>15 days</strong>. We may contact you on your provided phone number if necessary. 
-            For any queries or requirements to email us, please use: <a href="mailto:alwar.mart.in@gmail.com">alwar.mart.in@gmail.com</a>.
+            For any queries or requirements to email us, please use: <a href="mailto:alwar.mart.in@gmail.com" className="text-blue-600">alwar.mart.in@gmail.com</a>.
           </p>
-          <label style={{ fontSize: "14px" }}>
+          <label className="text-sm flex items-center">
             <input 
               type="checkbox" 
               checked={agreed} 
               onChange={(e) => setAgreed(e.target.checked)}
               required 
-              style={{ marginRight: "5px" }}
+              className="mr-2"
             />
             I agree to the above terms and conditions.
           </label>
         </div>
-        <button type="submit" disabled={loading} style={{ padding: "10px 20px" }}>
+        <button type="submit" disabled={loading} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
           {loading ? "Submitting..." : "Submit Deletion Request"}
         </button>
       </form>
-      {message && <p style={{ marginTop: "15px" }}>{message}</p>}
+      {message && <p className="mt-4 text-center">{message}</p>}
     </div>
   );
 }
