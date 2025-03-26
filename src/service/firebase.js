@@ -195,6 +195,20 @@ export async function addProduct(productData) {
   }
 }
 
+export async function addDeletionRequest(requestData) {
+  try {
+    const docRef = await addDoc(collection(db, "DeletionRequests"), {
+      ...requestData,
+      createdAt: new Date().toISOString()
+    });
+    return { id: docRef.id, ...requestData };
+  } catch (error) {
+    console.error("Error adding deletion request:", error);
+    throw error;
+  }
+}
+
+
 /**
  * Product Model Structure
  * @typedef {Object} ProductModel
@@ -222,4 +236,4 @@ export async function addProduct(productData) {
  * @property {Array<Object>} [variations] - Product variations (optional)
  */
 
-export default { searchProducts, getProductById, getProductBySlug, generateSlug, addProduct };
+export default { searchProducts,addDeletionRequest ,getProductById, getProductBySlug, generateSlug, addProduct };
